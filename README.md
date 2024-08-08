@@ -1,1 +1,4 @@
-The data and R code for the systematic review are provided in the following project files. The files starting with 'substance...' are the datasets for when wider substance-related exclusion was also eligible for inclusion, whereas the files starting with 'data...' are the primary datasets for the review. 
+**Alcohol use across trials of psychological interventions for bipolar: A systematic review and meta-analysis.**
+
+The code and datasets are provided for the project. Note: files starting with 'data...' are the primary datasets for the analyses. Alternatively, files starting with 'substance...' are the datasets used for sensitivity analyses exploring whether the categorisation of AUD (rather than SUD) influenced findings. 
+

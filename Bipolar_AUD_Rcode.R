@@ -19,9 +19,10 @@ metaanalysis <- metagen(TE = depression$yi, seTE = depression$sei, studlab = dep
 ## Sensitivity analyses
 measures_SMD <- escalc(measure = "SMD", m1i = data_depression$otherint_mean, m2i = data_depression$othercomp_mean, sd1i = data_depression$otherint_SD, sd2i = data_depression$othercomp_SD, n1i = data_depression$int_n, n2i = data_depression$comp_n)
 measures_depression <- cbind(depression, measures_SMD)
-measures_sei <- sqrt(measures_depression$vi/(measures_depression$int_n + measures_depression$comp_n))
+colnames(measures_depression) <- make.unique(colnames(measures_depression))
+measures_sei <- sqrt(measures_depression$vi.1/(measures_depression$int_n + measures_depression$comp_n))
 measures_depression <- cbind(measures_depression, measures_sei)
-measures_MA <- metagen(TE = measures_depression$yi, seTE = measures_depression$sei, byvar = measures_depression$Alc_category,  method.tau = "DL")
+measures_MA <- metagen(TE = measures_depression$yi.1, seTE = measures_depression$sei, byvar = measures_depression$Alc_category,  method.tau = "DL")
 duration_SMD <- measures_SMD <- escalc(measure = "SMD", m1i = data_depression$earlyint_mean, m2i = data_depression$earlycomp_mean, sd1i = data_depression$earlyint_SD, sd2i = data_depression$earlycomp_SD, n1i = data_depression$int_n, n2i = data_depression$comp_n)
 duration_depression <- cbind(data_depression, duration_SMD)
 duration_sei <- sqrt(duration_depression$vi/(duration_depression$int_n + duration_depression$comp_n))
